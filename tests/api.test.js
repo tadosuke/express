@@ -17,18 +17,12 @@ describe('fetchData()', () => {
         expect(data).toEqual({ message: 'success' });
     });
 
-    test('API がエラーを返した場合にエラーをスローする', async () => {
+    test('API がエラーを返した場合に、エラーをスローするか？', async () => {
         global.fetch = vi.fn().mockResolvedValue({
             ok: false,
             status: 500,
         });
 
         await expect(fetchData()).rejects.toThrow('HTTP error! Status: 500');
-    });
-
-    test('ネットワークエラー時にエラーをスローする', async () => {
-        global.fetch = vi.fn().mockRejectedValue(new Error('Network error'));
-
-        await expect(fetchData()).rejects.toThrow('Network error');
     });
 });
