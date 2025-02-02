@@ -1,3 +1,4 @@
-exports.getData = (req, res) => {
-    res.json({ message: "Hello from API!" });
-};
+export const getData = (req, res) => {
+    res.json({ message: "Hello, world!" });
+  };
+  

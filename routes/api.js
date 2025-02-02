@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
+import { getData } from '../controllers/apiController.js';
+
 const router = express.Router();
-const apiController = require('../controllers/apiController');
 
-router.get('/data', apiController.getData);
+router.get('/data', getData);
 
-module.exports = router;
+export default router;

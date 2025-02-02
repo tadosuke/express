@@ -1,12 +1,15 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import apiRoutes from './routes/api.js';
 
-const apiRoutes = require('./routes/api');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = 3000;
 
-// 静的ファイルを提供（フロントエンドを /public に配置）
+// 静的ファイルを提供
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ルーティング
